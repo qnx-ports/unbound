@@ -38,6 +38,9 @@
 #ifndef UB_ON_WINDOWS
 #include <sys/mman.h>
 #endif
+#ifdef __QNXNTO__
+#include "util/log.h"
+#endif /* __QNXNTO__ */
 
 #define KEYSTREAM_ONLY
 #include "chacha_private.h"
@@ -187,7 +190,11 @@ _rs_stir(void)
 		if(errno != ENOSYS ||
 			fallback_getentropy_urandom(rnd, sizeof rnd) == -1) {
 #ifdef SIGKILL
+#ifndef __QNXNTO__
 			raise(SIGKILL);
+#else /* !__QNXNTO__ */
+			fatal_exit("failed to getentropy");
+#endif /* __QNXNTO__ */
 #else
 			exit(9); /* windows */
 #endif

@@ -50,7 +50,11 @@
 
 #define xstr(s) str(s)
 #define str(s) #s
+#ifndef __QNXNTO__
 #define SRCDIRSTR xstr(SRCDIR)
+#else /* !__QNXNTO__ */
+#define SRCDIRSTR "."
+#endif /* __QNXNTO__ */
 
 /** Add zone from file for testing */
 struct auth_zone* authtest_addzone(struct auth_zones* az, const char* name,

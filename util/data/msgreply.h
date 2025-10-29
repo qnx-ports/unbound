@@ -44,6 +44,10 @@
 #include "util/storage/lruhash.h"
 #include "util/data/packed_rrset.h"
 #include "sldns/rrdef.h"
+#ifdef __QNXNTO__
+/* For struct timeval */
+#include <sys/time.h>
+#endif /* __QNXNTO__ */
 struct sldns_buffer;
 struct comm_reply;
 struct alloc_cache;

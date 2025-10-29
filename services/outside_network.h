@@ -48,6 +48,10 @@
 #include "util/regional.h"
 #include "util/netevent.h"
 #include "dnstap/dnstap_config.h"
+#ifdef __QNXNTO__
+/* For struct timeval */
+#include <sys/time.h>
+#endif /* __QNXNTO__ */
 struct pending;
 struct pending_timeout;
 struct ub_randstate;
