@@ -498,11 +498,11 @@ testfromdrillfile(sldns_buffer* pkt, struct alloc_cache* alloc,
 #define xstr(s) str(s)
 #define str(s) #s
 
-#ifndef __QNXNTO__
+#ifndef __QNX__
 #define SRCDIRSTR xstr(SRCDIR)
-#else /* !__QNXNTO__ */
+#else /* !__QNX__ */
 #define SRCDIRSTR "."
-#endif /* __QNXNTO__ */
+#endif /* __QNX__ */
 
 void msgparse_test(void)
 {

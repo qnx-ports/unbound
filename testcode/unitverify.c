@@ -513,11 +513,11 @@ nsec3_hash_test(const char* fname)
 #define xstr(s) str(s)
 #define str(s) #s
 
-#ifndef __QNXNTO__
+#ifndef __QNX__
 #define SRCDIRSTR xstr(SRCDIR)
-#else /* !__QNXNTO__ */
+#else /* !__QNX__ */
 #define SRCDIRSTR "."
-#endif /* __QNXNTO__ */
+#endif /* __QNX__ */
 #if defined(HAVE_SSL) && defined(USE_SHA1)
 /* Detect if openssl is configured to disable RSASHA1 signatures,
  * with the rh-allow-sha1-signatures disabled. */
